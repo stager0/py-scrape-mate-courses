@@ -14,10 +14,10 @@ class Course:
     duration: str
 
 
-def get_list_of_courses(soup: list[Tag]) -> list[Course]:
+def get_list_of_courses(blocks: list[Tag]) -> list[Course]:
     courses_data = []
 
-    for block in soup:
+    for block in blocks:
         course_duration = block.select("p")[0].get_text()
         course_name = block.select_one("h3").get_text()
         course_description = block.select("p")[1].get_text()
